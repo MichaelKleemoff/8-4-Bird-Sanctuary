@@ -1,9 +1,22 @@
+/** @format */
+
+import React from 'react';
+import birdData from './data/birds';
+import BirdCards from './Components/BirdCards';
+import Cart from './Components/Cart';
+import Checkout from './Components/Checkout';
+import { useState } from 'react';
+
 const App = () => {
-  return (
-    <div>
-      <h1>Hello, world!</h1>
-    </div>
-  );
+	const [cart, setCart] = useState([]);
+
+	return (
+		<div>
+			<Cart cart={cart} setCart={setCart} />
+			<Checkout />
+			<BirdCards birds={birdData} setCart={setCart} cart={cart} />
+		</div>
+	);
 };
 
 export default App;
